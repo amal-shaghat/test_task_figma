@@ -1,3 +1,15 @@
+@font-face {
+    font-family: Campton;
+    src: url(../fonts/CamptonMedium.otf);
+}
+@font-face {
+    font-family: Campton400;
+    src: url(../fonts/CamptonLight.otf);
+}
+@font-face {
+    font-family: campton-book;
+    src: url(../fonts/CamptonBook.otf);
+}
 .container {
     display: flex;
     justify-content: center;
@@ -24,7 +36,7 @@
 .search {
     border: none;
     outline: none;
-    font-family: 'Inter';
+    font-family: 'Campton';
     font-style: normal;
     font-weight: 400;
     font-size: 16px;
@@ -104,7 +116,7 @@ input:checked + .slider:before {
     border-radius: 50%;
 }
 .selected_text {
-    font-family: 'Inter';
+    font-family: 'Campton';
     font-style: normal;
     font-weight: 600;
     font-size: 16px;
@@ -114,7 +126,7 @@ input:checked + .slider:before {
     margin-left: 10px;
 }
 .clear_all {
-    font-family: 'Inter';
+    font-family: 'Campton';
     font-style: normal;
     font-weight: 600;
     font-size: 16px;
@@ -132,7 +144,7 @@ input:checked + .slider:before {
 }
 .country_name {
     padding: 13px 0;
-    font-family: 'Inter';
+    font-family: 'Campton';
     font-style: normal;
     font-weight: 500;
     font-size: 16px;
@@ -184,7 +196,7 @@ input:checked + .slider:before {
     border-radius: 50px;
     border: none;
     padding: 8px 25px;
-    font-family: 'Inter';
+    font-family: 'campton-book';
     font-style: normal;
     font-weight: 100;
     font-size: 16px;

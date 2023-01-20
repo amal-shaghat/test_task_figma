@@ -1,8 +1,12 @@
-function filterFunction() {
-    var input, filter, ul, label;
+var filter;
+function searchCountry() {
+    var input, ul, label;
     input = $('#search');
     filter = input.val().toUpperCase();
     label = $('.label');
+    if ($('#switch').val() == 1) {
+        label = $('.checking.active').parents('li').children('.label');
+    }
     for (i = 0; i < label.length; i++) {
         txtValue = label[i].textContent || label[i].innerText;
         if (txtValue.toUpperCase().indexOf(filter) > -1) {
@@ -69,12 +73,21 @@ $(document).ready(function () {
             $(this).val(0);
             $('.checking').parents('li').css('display', 'flex');
         }
+        if (filter) {
+            searchCountry();
+        }
     });
 
     $(document).on('click', '.clear_all', function () {
         $('.checking.active').removeClass('active');
         $('.checking.saved').removeClass('saved');
         localStorage.setItem('countries', '');
+        filter = '';
+        $('#search').val('');
+        searchCountry();
+        if ($('#switch').val() == 1) {
+            $('#switch').trigger('click');
+        }
     });
 
     $(document).on('click', '#submit', function (e) {
