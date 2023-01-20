@@ -1,0 +1,380 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter&display=swap" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.6.1/dist/jquery.slim.min.js"></script>
+    <title>Test Task</title>
+</head>
+<body>
+    <div class="container">
+        <div class="main">
+            <form action="">
+                <div class="form">
+                    <input type="search" placeholder="Search" id="search" class="search" onkeyup="filterFunction()">
+                    <div class="checkboxes">
+                        <div class="show_selected">
+                            <div class="switcher">
+                                <label class="switch">
+                                    <input type="checkbox" name="switcher" value="0" id="switch">
+                                    <span class="slider round"></span>
+                                </label>
+                                <span class="selected_text">Show selected only</span>
+                            </div>
+                            <span class="clear_all">
+                                Clear all
+                            </span>
+                        </div>
+                        <div class="countries">
+                            <ul class="countries_list">
+                                <li>
+                                    <input type="checkbox" name="afghanistan" id="afghanistan">
+                                    <span class="checking" id="afghanistan_">
+                                        <svg width="14" height="11" viewBox="0 0 14 11" fill="none" xmlns="http://www.w3.org/2000/svg"> <path d="M13.5656 2.38749L6.19322 9.75932C5.64729 10.3054 4.76171 10.3054 4.21526 9.75932L0.409603 5.95339C-0.136534 5.40735 -0.136534 4.52166 0.409603 3.97553C0.955845 3.42928 1.84136 3.42928 2.38736 3.97532L5.20453 6.79253L11.5875 0.409526C12.1337 -0.136716 13.0193 -0.136302 13.5654 0.409526C14.1114 0.955664 14.1114 1.84104 13.5656 2.38749Z" fill="white"/></svg>
+                                    </span>
+                                    <label class="label" for="afghanistan">Afghanistan</label>
+                                </li>
+                                <li>
+                                    <input type="checkbox" name="albania" id="albania">
+                                    <span class="checking" id="albania_">
+                                        <svg width="14" height="11" viewBox="0 0 14 11" fill="none" xmlns="http://www.w3.org/2000/svg"> <path d="M13.5656 2.38749L6.19322 9.75932C5.64729 10.3054 4.76171 10.3054 4.21526 9.75932L0.409603 5.95339C-0.136534 5.40735 -0.136534 4.52166 0.409603 3.97553C0.955845 3.42928 1.84136 3.42928 2.38736 3.97532L5.20453 6.79253L11.5875 0.409526C12.1337 -0.136716 13.0193 -0.136302 13.5654 0.409526C14.1114 0.955664 14.1114 1.84104 13.5656 2.38749Z" fill="white"/></svg>
+                                    </span>
+                                    <label class="label" for="albania">Albania</label>
+                                </li>
+                                <li>
+                                    <input type="checkbox" name="algeria" id="algeria">
+                                    <span class="checking" id="algeria_">
+                                        <svg width="14" height="11" viewBox="0 0 14 11" fill="none" xmlns="http://www.w3.org/2000/svg"> <path d="M13.5656 2.38749L6.19322 9.75932C5.64729 10.3054 4.76171 10.3054 4.21526 9.75932L0.409603 5.95339C-0.136534 5.40735 -0.136534 4.52166 0.409603 3.97553C0.955845 3.42928 1.84136 3.42928 2.38736 3.97532L5.20453 6.79253L11.5875 0.409526C12.1337 -0.136716 13.0193 -0.136302 13.5654 0.409526C14.1114 0.955664 14.1114 1.84104 13.5656 2.38749Z" fill="white"/></svg>
+                                    </span>
+                                    <label class="label" for="algeria">Algeria</label>
+                                </li>
+                                <li>
+                                    <input type="checkbox" name="andorra" id="andorra">
+                                    <span class="checking" id="andorra_">
+                                        <svg width="14" height="11" viewBox="0 0 14 11" fill="none" xmlns="http://www.w3.org/2000/svg"> <path d="M13.5656 2.38749L6.19322 9.75932C5.64729 10.3054 4.76171 10.3054 4.21526 9.75932L0.409603 5.95339C-0.136534 5.40735 -0.136534 4.52166 0.409603 3.97553C0.955845 3.42928 1.84136 3.42928 2.38736 3.97532L5.20453 6.79253L11.5875 0.409526C12.1337 -0.136716 13.0193 -0.136302 13.5654 0.409526C14.1114 0.955664 14.1114 1.84104 13.5656 2.38749Z" fill="white"/></svg>
+                                    </span>
+                                    <label class="label" for="andorra">Andorra</label>
+                                </li>
+                                <li>
+                                    <input type="checkbox" name="angola" id="angola">
+                                    <span class="checking" id="angola_">
+                                        <svg width="14" height="11" viewBox="0 0 14 11" fill="none" xmlns="http://www.w3.org/2000/svg"> <path d="M13.5656 2.38749L6.19322 9.75932C5.64729 10.3054 4.76171 10.3054 4.21526 9.75932L0.409603 5.95339C-0.136534 5.40735 -0.136534 4.52166 0.409603 3.97553C0.955845 3.42928 1.84136 3.42928 2.38736 3.97532L5.20453 6.79253L11.5875 0.409526C12.1337 -0.136716 13.0193 -0.136302 13.5654 0.409526C14.1114 0.955664 14.1114 1.84104 13.5656 2.38749Z" fill="white"/></svg>
+                                    </span>
+                                    <label class="label" for="angola">Angola</label>
+                                </li>
+                                <li>
+                                    <input type="checkbox" name="antigua" id="antigua">
+                                    <span class="checking" id="antigua_">
+                                        <svg width="14" height="11" viewBox="0 0 14 11" fill="none" xmlns="http://www.w3.org/2000/svg"> <path d="M13.5656 2.38749L6.19322 9.75932C5.64729 10.3054 4.76171 10.3054 4.21526 9.75932L0.409603 5.95339C-0.136534 5.40735 -0.136534 4.52166 0.409603 3.97553C0.955845 3.42928 1.84136 3.42928 2.38736 3.97532L5.20453 6.79253L11.5875 0.409526C12.1337 -0.136716 13.0193 -0.136302 13.5654 0.409526C14.1114 0.955664 14.1114 1.84104 13.5656 2.38749Z" fill="white"/></svg>
+                                    </span>
+                                    <label class="label" for="antigua">Antigua and Barbuda</label>
+                                </li>
+                                <li>
+                                    <input type="checkbox" name="argentina" id="argentina">
+                                    <span class="checking" id="argentina_">
+                                        <svg width="14" height="11" viewBox="0 0 14 11" fill="none" xmlns="http://www.w3.org/2000/svg"> <path d="M13.5656 2.38749L6.19322 9.75932C5.64729 10.3054 4.76171 10.3054 4.21526 9.75932L0.409603 5.95339C-0.136534 5.40735 -0.136534 4.52166 0.409603 3.97553C0.955845 3.42928 1.84136 3.42928 2.38736 3.97532L5.20453 6.79253L11.5875 0.409526C12.1337 -0.136716 13.0193 -0.136302 13.5654 0.409526C14.1114 0.955664 14.1114 1.84104 13.5656 2.38749Z" fill="white"/></svg>
+                                    </span>
+                                    <label class="label" for="argentina">Argentina</label>
+                                </li>
+                                <li>
+                                    <input type="checkbox" name="armenia" id="armenia">
+                                    <span class="checking" id="armenia_">
+                                        <svg width="14" height="11" viewBox="0 0 14 11" fill="none" xmlns="http://www.w3.org/2000/svg"> <path d="M13.5656 2.38749L6.19322 9.75932C5.64729 10.3054 4.76171 10.3054 4.21526 9.75932L0.409603 5.95339C-0.136534 5.40735 -0.136534 4.52166 0.409603 3.97553C0.955845 3.42928 1.84136 3.42928 2.38736 3.97532L5.20453 6.79253L11.5875 0.409526C12.1337 -0.136716 13.0193 -0.136302 13.5654 0.409526C14.1114 0.955664 14.1114 1.84104 13.5656 2.38749Z" fill="white"/></svg>
+                                    </span>
+                                    <label class="label" for="armenia">Armenia</label>
+                                </li>
+                                <li>
+                                    <input type="checkbox" name="australia" id="australia">
+                                    <span class="checking" id="australia_">
+                                        <svg width="14" height="11" viewBox="0 0 14 11" fill="none" xmlns="http://www.w3.org/2000/svg"> <path d="M13.5656 2.38749L6.19322 9.75932C5.64729 10.3054 4.76171 10.3054 4.21526 9.75932L0.409603 5.95339C-0.136534 5.40735 -0.136534 4.52166 0.409603 3.97553C0.955845 3.42928 1.84136 3.42928 2.38736 3.97532L5.20453 6.79253L11.5875 0.409526C12.1337 -0.136716 13.0193 -0.136302 13.5654 0.409526C14.1114 0.955664 14.1114 1.84104 13.5656 2.38749Z" fill="white"/></svg>
+                                    </span>
+                                    <label class="label" for="australia">Australia</label>
+                                </li>
+                                <li>
+                                    <input type="checkbox" name="austria" id="austria">
+                                    <span class="checking" id="austria_">
+                                        <svg width="14" height="11" viewBox="0 0 14 11" fill="none" xmlns="http://www.w3.org/2000/svg"> <path d="M13.5656 2.38749L6.19322 9.75932C5.64729 10.3054 4.76171 10.3054 4.21526 9.75932L0.409603 5.95339C-0.136534 5.40735 -0.136534 4.52166 0.409603 3.97553C0.955845 3.42928 1.84136 3.42928 2.38736 3.97532L5.20453 6.79253L11.5875 0.409526C12.1337 -0.136716 13.0193 -0.136302 13.5654 0.409526C14.1114 0.955664 14.1114 1.84104 13.5656 2.38749Z" fill="white"/></svg>
+                                    </span>
+                                    <label class="label" for="austria">Austria</label>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="submit_div">
+                        <input type="submit" id="submit" value="Save">
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+    <style>
+        .container {
+            display: flex;
+            justify-content: center;
+        }
+        .main {
+            width: 500px;
+            padding: 20px;
+        }
+        .title {
+            font-family: 'Inter';
+            font-style: normal;
+            font-weight: 400;
+            font-size: 20px;
+            line-height: 24px;
+            color: #000000;
+        }
+        .form {
+            background: #FFFFFF;
+            border: 1px solid #E1E3E6;
+            box-shadow: 9px 32px 35px rgba(0, 0, 0, 0.0464653);
+            border-radius: 14px;
+            padding: 20px;
+        }
+        .search {
+            border: none;
+            outline: none;
+            font-family: 'Inter';
+            font-style: normal;
+            font-weight: 400;
+            font-size: 16px;
+            line-height: 19px;
+            letter-spacing: -0.5px;
+            color: #343434;
+            width: 100%;
+        }
+        .search::placeholder {
+            color: #343434;
+        }
+        .checkboxes {
+            margin-top: 12px;
+            padding: 10px 0;
+            border-bottom: 1px solid #ececec;
+            border-top: 1px solid #ececec;
+        }
+        .show_selected {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-top: 13px;
+        }
+        .switcher {
+            display: flex;
+            align-items: center;
+        }
+        .switch {
+            position: relative;
+            display: inline-block;
+            width: 37px;
+            height: 22px;
+        }
+        .switch input {
+            opacity: 0;
+            width: 0;
+            height: 0;
+        }
+        .slider {
+            position: absolute;
+            cursor: pointer;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: rgba(0, 28, 61, 0.08);
+            -webkit-transition: .4s;
+            transition: .4s;
+        }
+        .slider:before {
+            position: absolute;
+            content: "";
+            height: 19px;
+            width: 19px;
+            left: 0px;
+            bottom: 2px;
+            background-color: white;
+            -webkit-transition: .4s;
+            transition: .4s;
+            box-shadow: 0px 2.17647px 5.80392px rgba(0, 0, 0, 0.15);
+        }
+        input:checked + .slider {
+            background-color: #2196F3;
+        }
+        input:focus + .slider {
+            box-shadow: 0 0 1px #2196F3;
+        }
+        input:checked + .slider:before {
+            -webkit-transform: translateX(26px);
+            -ms-transform: translateX(26px);
+            transform: translateX(18px);
+        }
+        .slider.round {
+            border-radius: 20px;
+        }
+        .slider.round:before {
+            border-radius: 50%;
+        }
+        .selected_text {
+            font-family: 'Inter';
+            font-style: normal;
+            font-weight: 600;
+            font-size: 16px;
+            line-height: 22px;
+            letter-spacing: -0.5px;
+            color: #232323;
+            margin-left: 10px;
+        }
+        .clear_all {
+            font-family: 'Inter';
+            font-style: normal;
+            font-weight: 600;
+            font-size: 16px;
+            line-height: 22px;
+            letter-spacing: -0.5px;
+            color: #232323;
+            cursor: pointer;
+        }
+        .countries_list {
+            padding: 0;
+            list-style: none;
+            max-height: 260px;
+            margin-top: 13px;
+            overflow-y: scroll;
+        }
+        .countries_list input {
+            display: none;
+        }
+        .countries_list li {
+            padding: 13px 0;
+            font-family: 'Inter';
+            font-style: normal;
+            font-weight: 500;
+            font-size: 16px;
+            line-height: 16px;
+            color: #343434;
+            display: flex;
+            align-items: center;
+        }
+        .countries_list::-webkit-scrollbar {
+            width: 8px;
+            background-color: #fff;
+        }
+        .countries_list::-webkit-scrollbar-thumb {
+            background: rgba(52, 52, 52, 0.51);
+            border-radius: 4px;
+        }
+        .checking {
+            width: 22px;
+            height: 22px;
+            background: #ececec;
+            border-radius: 8px;
+            margin-right: 15px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .checking svg path {
+            fill: #ececec;
+        }
+        .checking.active {
+            background: #457DF1;
+        }
+        .checking.active svg {
+            fill: #ececec;
+        }
+        .checking.saved {
+            background-color: #ececec;
+        }
+        .checking.saved svg path {
+            fill: #c4c4c4;
+        }
+        .label {
+            pointer-events: none;
+        }
+        #submit {
+            background: #60D09B;
+            border-radius: 50px;
+            border: none;
+            padding: 8px 25px;
+            font-family: 'Inter';
+            font-style: normal;
+            font-weight: 100;
+            font-size: 16px;
+            line-height: 22px;
+            text-align: center;
+            letter-spacing: -0.5px;
+            color: #fff;
+        }
+
+        .submit_div {
+            margin-top: 20px;
+            display: flex;
+            justify-content: flex-end;
+        }
+    </style>
+    <script>
+        function filterFunction() {
+            var input, filter, ul, label;
+            input = $('#search');
+            filter = input.val().toUpperCase();
+            label = $('.label');
+            for (i = 0; i < label.length; i++) {
+                txtValue = label[i].textContent || label[i].innerText;
+                if (txtValue.toUpperCase().indexOf(filter) > -1) {
+                    label[i].parentElement.style.display = "";
+                } else {
+                    label[i].parentElement.style.display = "none";
+                }
+            }
+        }
+        $(document).ready(function () {
+            var countries = localStorage.getItem('countries');
+            countries = countries.split(',');
+            for (i = 0; i < countries.length; i++) {
+                $('.checking').each(function () {
+                    if ($(this).attr('id') == countries[i] + '_') {
+                        $(this).addClass('saved active');
+                        console.log($(this))
+                    }
+                });
+            }
+
+            $(document).on('click', '.countries_list li', function () {
+                $(this).children('span').toggleClass('active');
+            });
+
+            $(document).on('click', '#switch', function () {
+                if ($(this).val() == 0) {
+                    $(this).val(1);
+                    $('.checking').parents('li').css('display', 'none');
+                    $('.checking.active').parents('li').css('display', 'flex');
+                } else {
+                    $(this).val(0);
+                    $('.checking').parents('li').css('display', 'flex');
+                }
+            });
+
+            $(document).on('click', '.clear_all', function () {
+                $('.checking.active').removeClass('active');
+                $('.checking.saved').removeClass('saved');
+            });
+
+            $(document).on('click', '#submit', function (e) {
+                $('.checking.active').addClass('saved');
+                var selectedCountries = $('.checking.active');
+                var countriesArray = [];
+                $(selectedCountries).each(function () {
+                    countriesArray.push($(this).attr('id').replace('_', ''));
+                });
+                localStorage.setItem('countries', countriesArray.toString());
+            })
+        })
+    </script>
+</body>
+</html>
