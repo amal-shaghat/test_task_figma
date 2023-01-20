@@ -130,10 +130,7 @@ input:checked + .slider:before {
     margin-top: 13px;
     overflow-y: scroll;
 }
-.countries_list input {
-    display: none;
-}
-.countries_list li {
+.country_name {
     padding: 13px 0;
     font-family: 'Inter';
     font-style: normal;
@@ -147,10 +144,12 @@ input:checked + .slider:before {
 .countries_list::-webkit-scrollbar {
     width: 8px;
     background-color: #fff;
+    height: 100px;
 }
 .countries_list::-webkit-scrollbar-thumb {
     background: rgba(52, 52, 52, 0.51);
     border-radius: 4px;
+    height: 80px;
 }
 .checking {
     width: 22px;
