@@ -51,13 +51,15 @@ $(document).ready(function () {
     }
     $('.countries_list').html(list);
     var countries = localStorage.getItem('countries');
-    countries = countries.split(',');
-    for (i = 0; i < countries.length; i++) {
-        $('.checking').each(function () {
-            if ($(this).attr('id') == countries[i] + '-') {
-                $(this).addClass('saved active');
-            }
-        });
+    if (countries) {
+        countries = countries.split(',');
+        for (i = 0; i < countries.length; i++) {
+            $('.checking').each(function () {
+                if ($(this).attr('id') == countries[i] + '-') {
+                    $(this).addClass('saved active');
+                }
+            });
+        }
     }
 
     $(document).on('click', '.countries_list li', function () {
