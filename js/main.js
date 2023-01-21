@@ -1,21 +1,3 @@
-var filter;
-function searchCountry() {
-    var input, ul, label;
-    input = $('#search');
-    filter = input.val().toUpperCase();
-    label = $('.label');
-    if ($('#switch').val() == 1) {
-        label = $('.checking.active').parents('li').children('.label');
-    }
-    for (i = 0; i < label.length; i++) {
-        txtValue = label[i].textContent || label[i].innerText;
-        if (txtValue.toUpperCase().indexOf(filter) > -1) {
-            label[i].parentElement.style.display = "";
-        } else {
-            label[i].parentElement.style.display = "none";
-        }
-    }
-}
 $(document).ready(function () {
     var allCountries = [
         'Afghanistan', 'Albania', 'Algeria', 'Andorra', 'Angola', 'Antigua and Barbuda', 'Argentina', 'Armenia', 'Australia', 'Austria',
@@ -43,22 +25,21 @@ $(document).ready(function () {
     for (j = 0; j < allCountries.length; j++) {
         var countryName = allCountries[j].toLowerCase().replace(/\s+/g, '_');
         list += '<li class="country_name">' +
-            '     <span class="checking" id="' + countryName + '-">' +
+            '     <span class="check" id="country_' + countryName + '">' +
             '         <svg width="14" height="11" viewBox="0 0 14 11" fill="none" xmlns="http://www.w3.org/2000/svg"> <path d="M13.5656 2.38749L6.19322 9.75932C5.64729 10.3054 4.76171 10.3054 4.21526 9.75932L0.409603 5.95339C-0.136534 5.40735 -0.136534 4.52166 0.409603 3.97553C0.955845 3.42928 1.84136 3.42928 2.38736 3.97532L5.20453 6.79253L11.5875 0.409526C12.1337 -0.136716 13.0193 -0.136302 13.5654 0.409526C14.1114 0.955664 14.1114 1.84104 13.5656 2.38749Z" fill="white"/></svg>' +
             '     </span>' +
             '     <label class="label" for="' + countryName + '">' + allCountries[j] + '</label>' +
             '</li>'
     }
     $('.countries_list').html(list);
-    var countries = localStorage.getItem('countries');
-    if (countries) {
-        countries = countries.split(',');
-        for (i = 0; i < countries.length; i++) {
-            $('.checking').each(function () {
-                if ($(this).attr('id') == countries[i] + '-') {
-                    $(this).addClass('saved active');
-                }
-            });
+
+    var searchStr;
+
+    var savedCountries = localStorage.getItem('countries');
+    if (savedCountries) {
+        savedCountries = savedCountries.split(',');
+        for (i = 0; i < savedCountries.length; i++) {
+            $('#country_' + savedCountries[i]).addClass('saved active');
         }
     }
 
@@ -69,36 +50,55 @@ $(document).ready(function () {
     $(document).on('click', '#switch', function () {
         if ($(this).val() == 0) {
             $(this).val(1);
-            $('.checking').parents('li').css('display', 'none');
-            $('.checking.active').parents('li').css('display', 'flex');
+            $('.check').parents('li').css('display', 'none');
+            $('.check.active').parents('li').css('display', 'flex');
         } else {
             $(this).val(0);
-            $('.checking').parents('li').css('display', 'flex');
+            $('.check').parents('li').css('display', 'flex');
         }
-        if (filter) {
-            searchCountry();
+        if (searchStr) {
+            searchCountries();
         }
     });
 
+    $(document).on('keyup', '#search', function () {
+        searchCountries();
+    });
+
+    $(document).on('click', '#submit', function (e) {
+        $('.check.active').addClass('saved');
+        var selectedCountries = $('.check.active');
+        var countriesArray = [];
+        $(selectedCountries).each(function () {
+            countriesArray.push($(this).attr('id').replace('country_', ''));
+        });
+        localStorage.setItem('countries', countriesArray.toString());
+    });
+
     $(document).on('click', '.clear_all', function () {
-        $('.checking.active').removeClass('active');
-        $('.checking.saved').removeClass('saved');
+        $('.check.active').removeClass('active');
+        $('.check.saved').removeClass('saved');
         localStorage.setItem('countries', '');
-        filter = '';
+        searchStr = '';
         $('#search').val('');
-        searchCountry();
+        searchCountries();
         if ($('#switch').val() == 1) {
             $('#switch').trigger('click');
         }
     });
 
-    $(document).on('click', '#submit', function (e) {
-        $('.checking.active').addClass('saved');
-        var selectedCountries = $('.checking.active');
-        var countriesArray = [];
-        $(selectedCountries).each(function () {
-            countriesArray.push($(this).attr('id').replace('-', ''));
+    function searchCountries() {
+        searchStr = $('#search').val().toUpperCase();
+        var labels = $('.label');
+        if ($('#switch').val() == 1) {
+            labels = $('.check.active').parents('li').children('.label');
+        }
+        labels.each(function () {
+            if ($(this).text().toUpperCase().indexOf(searchStr) > -1) {
+                $(this).parents('li').css('display', '');
+            } else {
+                $(this).parents('li').css('display', 'none');
+            }
         });
-        localStorage.setItem('countries', countriesArray.toString());
-    })
+    }
 })
